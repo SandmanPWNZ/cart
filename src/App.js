@@ -1,23 +1,27 @@
-import React, {Component, Suspense, lazy} from 'react';
-import './App.css';
+import React, {Suspense, lazy} from 'react';
+import './App.scss';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import Loading from './containers/Loading';
+import Header from './containers/Header';
 
 //Routes
 const Home = lazy(() => import('./routes/Home'));
 const Cart = lazy(() => import('./routes/Cart'));
 
-
 const App = ({store}) => {
     return (
         <Provider store={store}>
+            <Header/>
             <Router>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/cart" component={Cart}/>
-                    </Switch>
-                </Suspense>
+                <main className={'layout'}>
+                        <Suspense fallback={<Loading/>}>
+                            <Switch>
+                                <Route exact path="/" render={() => <Home/>}/>
+                                <Route path="/cart" render={() => <Cart/>}/>
+                            </Switch>
+                        </Suspense>
+                </main>
             </Router>
         </Provider>
     );

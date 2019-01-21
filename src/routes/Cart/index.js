@@ -1,1 +1,1 @@
-export { default } from './Cart.js'
+export {default} from './Cart.js'
