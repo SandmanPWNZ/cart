@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f6ed7e5-d179-4639-bd8d-7c0dfaaf4631" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/containers/FormField/FormField.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/FormField/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/Checkout/components/CheckoutForm.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/FormValidate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Cart/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Cart/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Cart/Cart.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Cart/Cart.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Cart/store/CartReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Cart/store/CartReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Checkout/components/CheckoutForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Checkout/components/CheckoutForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/FormValidate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/FormValidate.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +24,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/Cart/Cart.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
@@ -88,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/utils/FormValidate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
+            <state relative-caret-position="19">
+              <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -215,12 +206,12 @@
         <option value="$PROJECT_DIR$/src/utils/index.js" />
         <option value="$PROJECT_DIR$/src/routes/Checkout/components/CheckoutForm.js" />
         <option value="$PROJECT_DIR$/src/routes/Checkout/components/CheckoutForm.scss" />
-        <option value="$PROJECT_DIR$/src/utils/FormValidate.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/routes/Cart/store/CartReducer.js" />
         <option value="$PROJECT_DIR$/src/routes/Cart/Cart.scss" />
         <option value="$PROJECT_DIR$/src/index.scss" />
         <option value="$PROJECT_DIR$/src/routes/Cart/Cart.js" />
+        <option value="$PROJECT_DIR$/src/utils/FormValidate.js" />
       </list>
     </option>
   </component>
@@ -379,19 +370,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76088000" />
+    <option name="totallyTimeSpent" value="76244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.489533" visible="true" weight="0.18176973" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4903226" visible="true" weight="0.18176973" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" sideWeight="0.510467" side_tool="true" visible="true" weight="0.18176973" />
+      <window_info id="npm" order="2" sideWeight="0.5096774" side_tool="true" visible="true" weight="0.18176973" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978678" visible="true" weight="0.32719395" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978678" weight="0.32719395" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,7 +391,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5021322" side_tool="true" weight="0.32827735" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" weight="0.32827735" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.32827735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -717,13 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/FormValidate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -783,6 +767,13 @@
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#152#194#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/FormValidate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
         </state>
       </provider>
     </entry>
