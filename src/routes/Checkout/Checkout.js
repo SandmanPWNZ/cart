@@ -4,7 +4,7 @@ import {CheckoutForm} from "./components";
 class Checkout extends Component {
     render() {
         return (
-            <div>
+            <div className={'wrapper'}>
                 <CheckoutForm />
             </div>
         );
