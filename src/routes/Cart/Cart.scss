@@ -7,9 +7,30 @@
 }
 
 a.btn {
+  color: #000000;
   box-sizing: border-box;
   background-color: #cecece;
   text-align: center;
   display: inline-block;
   text-decoration: none;
+}
+
+.error-notify{
+  min-width: 25%;
+  text-align: center;
+  border: 1px solid #cecece;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  padding: 25px;
+  span{
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  p{
+    font-size: 1.2rem;
+    color: #B62126;
+  }
 }

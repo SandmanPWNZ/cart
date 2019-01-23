@@ -11,7 +11,7 @@ const CartReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case CONSTANTS.FETCH_PRODUCTS_ERROR:
-            return {...state, error: true, errorMessage: action.payload};
+            return {...state, error: true, errorMessage: action.payload.message};
 
         case CONSTANTS.FETCH_PRODUCTS_SUCCESS:
             return {...state, products: action.payload};

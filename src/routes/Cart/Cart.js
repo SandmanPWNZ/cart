@@ -18,10 +18,13 @@ class Cart extends Component {
         super(props);
         this.state = {
             cartList: this.props.products,
-            loading: true
+            loading: true,
+            showError: false,
         };
+
         this.deleteItem = this.deleteItem.bind(this);
         this.changeQuantity = this.changeQuantity.bind(this);
+        this.closeNotifier = this.closeNotifier.bind(this);
     }
 
     //lifecycle functions
@@ -30,9 +33,14 @@ class Cart extends Component {
     }
 
     componentWillReceiveProps(props) {
-        this.setState({
-            cartList: props.products,
-            loading: false
+        if (props.error) {
+            this.setState(state => {
+                state.showError = !state.showError;
+            })
+        }
+        this.setState(state => {
+            state.cartList = props.products;
+            state.loading = false;
         });
     }
 
@@ -60,6 +68,12 @@ class Cart extends Component {
 
         this.setState({
             cartList: newProducts
+        });
+    }
+
+    closeNotifier() {
+        this.setState(state=>{
+            state.showError = !state.showError;
         });
     }
 
@@ -97,6 +111,13 @@ class Cart extends Component {
                         <CartTotal onChange={this.props.totalChanged} products={this.state.cartList}/>
                         <NavLink to={'/checkout'} className={'btn'}
                                  disabled={this.state.cartList.length === 0}>Buy</NavLink>
+                    </div>
+                }
+                {
+                    this.props.error &&
+                    <div className={'error-notify shadowed'}>
+                        <span onClick={this.closeNotifier}>Close</span>
+                        <p>{this.props.errorMessage}</p>
                     </div>
                 }
             </div>

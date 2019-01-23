@@ -1,0 +1,30 @@
+form {
+  width: 60%;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    align-items: center;
+
+    label {
+      font-weight: 700;
+    }
+
+    input, select {
+      text-align: right;
+      padding: 10px;
+      min-width: 50%;
+      border-radius: 5px;
+      border: 1px solid #cecece;
+
+      &:focus {
+        border: 1px solid #3b99ff;
+      }
+    }
+
+    &.checkout{
+      justify-content: flex-end;
+    }
+  }
+}
