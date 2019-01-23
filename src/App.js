@@ -8,6 +8,7 @@ import Header from './containers/Header';
 //Routes
 const Home = lazy(() => import('./routes/Home'));
 const Cart = lazy(() => import('./routes/Cart'));
+const Checkout = lazy(() => import('./routes/Checkout'));
 
 const App = ({store}) => {
     return (
@@ -20,6 +21,7 @@ const App = ({store}) => {
                             <Switch>
                                 <Route exact path="/" render={() => <Home/>}/>
                                 <Route path="/cart" render={() => <Cart/>}/>
+                                <Route path="/checkout" render={() => <Checkout/>}/>
                             </Switch>
                         </Suspense>
                     </main>

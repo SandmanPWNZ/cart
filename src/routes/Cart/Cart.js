@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Cart.scss';
 import {connect} from 'react-redux';
+import {NavLink} from "react-router-dom";
 
 //modules
 import {ProductItem} from './components/';
@@ -94,7 +95,8 @@ class Cart extends Component {
                     this.state.cartList.length === 0 ||
                     <div className={'cart-checkout'}>
                         <CartTotal onChange={this.props.totalChanged} products={this.state.cartList}/>
-                        <button className={'btn'} disabled={this.state.cartList.length === 0}>Buy</button>
+                        <NavLink to={'/checkout'} className={'btn'}
+                                 disabled={this.state.cartList.length === 0}>Buy</NavLink>
                     </div>
                 }
             </div>

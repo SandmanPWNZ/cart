@@ -51,6 +51,12 @@ table {
   border-spacing: 0;
 }
 
+html {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400;
+  font-size: 16px;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -58,12 +64,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #B62126;
-}
-
-html {
-  font-family: 'Roboto', sans-serif !important;
-  font-weight: 400;
-  font-size: 16px;
+  color: #000000;
 }
 
 button {
@@ -91,9 +92,14 @@ button {
   padding: 10px 20px;
   min-width: 100px;
   border-radius: 2px;
+  position: relative;
 }
 
-::selection{
+::selection {
   color: #ffffff;
   background-color: #B62126;
+}
+
+a:visited {
+  color: inherit;
 }
