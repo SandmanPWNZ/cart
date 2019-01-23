@@ -24,7 +24,7 @@ class Cart extends Component {
     }
 
     //lifecycle functions
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchProducts();
     }
 
