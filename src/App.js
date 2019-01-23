@@ -12,16 +12,18 @@ const Cart = lazy(() => import('./routes/Cart'));
 const App = ({store}) => {
     return (
         <Provider store={store}>
-            <Header/>
             <Router>
-                <main className={'layout'}>
+                <div>
+                    <Header/>
+                    <main className={'layout'}>
                         <Suspense fallback={<Loading/>}>
                             <Switch>
                                 <Route exact path="/" render={() => <Home/>}/>
                                 <Route path="/cart" render={() => <Cart/>}/>
                             </Switch>
                         </Suspense>
-                </main>
+                    </main>
+                </div>
             </Router>
         </Provider>
     );

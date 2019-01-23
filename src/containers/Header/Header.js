@@ -1,12 +1,15 @@
 import React from 'react';
 import './Header.css';
+import {NavLink} from 'react-router-dom';
 import logo from './logo.svg';
 
 const Header = () => {
-    return(
+    return (
         <header>
             <div className={'logo'}>
-                <img src={logo} alt="7ninjas logo"/>
+                <NavLink to="/">
+                    <img src={logo} alt="7ninjas logo"/>
+                </NavLink>
             </div>
             <p className={'slogan'}>
                 Front-End Developer<span>.</span>

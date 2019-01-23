@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import CONSTANTS from './CartTypes.js';
 
 function doRequest(method, url, data = {}) {
     return axios({
@@ -35,22 +35,26 @@ export function fetchProducts() {
 
         return doRequest('get', 'http://5c3dfc7fa9d04f0014a98afa.mockapi.io/products')
             .then(response => {
-                debugger
-                dispatch(fetchProductsSuccess(response));
+                if (response.status === 200) {
+                    return dispatch(fetchProductsSuccess(response.data));
+                } else {
+                    return dispatch(fetchProductsError(response.statusText))
+                }
             })
             .catch(response => {
                 if (response instanceof Error) {
-                    dispatch(fetchProductsError(response));
+                    return dispatch(fetchProductsError(response));
                 }
             })
     }
 }
 
-const CONSTANTS = {
-    FETCH_PRODUCTS_BEGIN: 'FETCH_PRODUCTS_BEGIN',
-    FETCH_PRODUCTS_INIT: 'FETCH_PRODUCTS_INIT',
-    FETCH_PRODUCTS_SUCCESS: 'FETCH_PRODUCTS_SUCCESS',
-    FETCH_PRODUCTS_ERROR: 'FETCH_PRODUCTS_ERROR',
-};
+export function totalChanged(total) {
+    return dispatch => {
+        return dispatch({
+            type: CONSTANTS.TOTAL_CHANGED, payload: total
+        })
+    }
+}
 
-export {CONSTANTS as default};
+export default 'null';

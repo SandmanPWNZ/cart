@@ -47,6 +47,7 @@ li:last-of-type {
       right: 0;
       border: 0;
       background: transparent;
+      cursor: pointer;
     }
 
     img {
@@ -74,6 +75,7 @@ li:last-of-type {
         border: 1px solid #f1f1f1;
         min-width: 25px;
         min-height: 25px;
+        cursor: pointer;
 
         &:disabled {
           background: #cecece;
