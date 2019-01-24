@@ -19,6 +19,20 @@ const CartReducer = (state = initialState, action) => {
         case CONSTANTS.TOTAL_CHANGED:
             return {...state, total: action.payload};
 
+        case CONSTANTS.QUANTITY_CHANGED: {
+            let index = action.payload.index,
+                products = state.products;
+            products[index].quantity = action.payload.quantity;
+            return {...state, products};
+        }
+
+        case CONSTANTS.DELETE_FROM_CART: {
+            let index = action.payload;
+            let products = state.products;
+            products.splice(index, 1);
+            return {...state, products};
+        }
+
         default:
             return {...state};
     }

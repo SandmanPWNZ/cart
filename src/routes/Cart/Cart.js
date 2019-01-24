@@ -17,7 +17,7 @@ class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartList: this.props.products,
+            cartList: [],
             loading: true,
             showError: false,
         };
@@ -28,36 +28,33 @@ class Cart extends Component {
     }
 
     //lifecycle functions
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchProducts();
     }
 
-    componentWillReceiveProps(props) {
-        if (props.error) {
-            this.setState(state => {
-                state.showError = !state.showError;
+    componentDidUpdate(prevProps, context) {
+        if (this.props.error) {
+            this.setState({
+                showError: !this.state.showError
             })
         }
-        this.setState(state => {
-            state.cartList = props.products;
-            state.loading = false;
-        });
+        if (prevProps.products.length !== this.props.products.length) {
+            this.setState({
+                loading: false,
+                cartList: this.props.products
+            });
+        }
     }
 
     // component functions
-    changeQuantity(index, action) {
-        let products = this.state.cartList,
-            quantity = this.state.cartList[index].quantity;
-        products[index].quantity =
-            action === 'plus' ? (
-                quantity + 1
-            ) : (
-                quantity - 1
-            );
+    changeQuantity(index, quantity) {
+        let products = this.state.cartList;
+        products[index].quantity = quantity;
 
         this.setState({
             cartList: products
         });
+        this.props.quantityChanged(index, quantity);
     }
 
     deleteItem(index) {
@@ -69,10 +66,11 @@ class Cart extends Component {
         this.setState({
             cartList: newProducts
         });
+        this.props.productRemoved(index);
     }
 
     closeNotifier() {
-        this.setState(state=>{
+        this.setState(state => {
             state.showError = !state.showError;
         });
     }

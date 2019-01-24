@@ -4,27 +4,56 @@ form {
   .row {
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: 25px 0;
     align-items: center;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     label {
       font-weight: 700;
     }
 
     input, select {
-      text-align: right;
       padding: 10px;
       min-width: 50%;
       border-radius: 5px;
       border: 1px solid #cecece;
+
+      &.error {
+        border: 1px solid #B62126;
+      }
 
       &:focus {
         border: 1px solid #3b99ff;
       }
     }
 
-    &.checkout{
+    &.checkout {
       justify-content: flex-end;
+    }
+
+    span {
+      margin-top: 5px;
+      font-size: 0.7rem;
+    }
+
+    span.error {
+      color: #B62126;
+    }
+
+    span.warning {
+      color: #b6b309;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

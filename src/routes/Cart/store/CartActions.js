@@ -28,7 +28,6 @@ function beginProductsFetch() {
     }
 }
 
-
 export function fetchProducts() {
     return dispatch => {
         dispatch(beginProductsFetch());
@@ -53,6 +52,22 @@ export function totalChanged(total) {
     return dispatch => {
         return dispatch({
             type: CONSTANTS.TOTAL_CHANGED, payload: total
+        })
+    }
+}
+
+export function quantityChanged(index, quantity) {
+    return dispatch => {
+        return dispatch({
+            type: CONSTANTS.QUANTITY_CHANGED, payload: {index, quantity}
+        })
+    }
+}
+
+export function productRemoved(index) {
+    return dispatch => {
+        return dispatch({
+            type: CONSTANTS.DELETE_FROM_CART, payload: index
         })
     }
 }
