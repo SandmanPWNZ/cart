@@ -6,9 +6,10 @@ import './CheckoutForm.scss';
 import {required, minLen3, email, exactLen9, num} from '../../../utils/FormValidate'
 import FormField from '../../../containers/FormField';
 
+
 class CheckoutForm extends Component {
     render() {
-        const {handleSubmit, pristine, submitting, invalid} = this.props;
+        const {handleSubmit, pristine, submitting, invalid, total} = this.props;
 
         const submit = (values) => console.log(values);
 
@@ -46,21 +47,23 @@ class CheckoutForm extends Component {
                        component={FormField}
                        validate={[required, email]}
                        type="text"/>
-                <Field id="shippingOptions"
-                       divClass={'row'}
-                       label={'Shipping options'}
-                       name="shippingOptions"
-                       component={FormField}
-                       type="select">
-                    <option value="ninjPost">ninjPost</option>
-                    <option value="D7L">D7L</option>
-                    <option value="7post">7post</option>
-                </Field>
-                <div className="shippingPrice">
-                    {
+                <div className={'row shipping'}>
+                    <label htmlFor="shippingOptions">Shipping options:</label>
+                    <Field id="shippingOptions"
+                           name="shippingOptions"
+                           component="select"
+                    >
+                        <option value="ninjPost">ninjPost</option>
+                        <option value="D7L">D7L</option>
+                        <option value="7post">7post</option>
+                    </Field>
+                    <div className="shipping-price">
+                        {
 
-                    }
+                        }
+                    </div>
                 </div>
+
                 <div className="row checkout">
                     <button className={'btn'} disabled={invalid || pristine || submitting} type="submit">PAY</button>
                 </div>

@@ -38,6 +38,10 @@ form {
       justify-content: flex-end;
     }
 
+    &.shipping {
+      position: relative;
+    }
+
     span {
       margin-top: 5px;
       font-size: 0.7rem;
@@ -56,4 +60,14 @@ form {
       flex-direction: column;
     }
   }
+}
+
+.shipping-price {
+  pointer-events: none;
+  position: absolute;
+  right: 20px;
+  color: #000;
+  padding: 5px;
+  font-size: 0.9rem;
+  border-radius: 5px;
 }
