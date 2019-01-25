@@ -17,8 +17,7 @@ class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartList: [],
-            loading: true,
+            loading: false,
             showError: false,
         };
 
@@ -32,40 +31,35 @@ class Cart extends Component {
         this.props.fetchProducts();
     }
 
-    componentDidUpdate(prevProps, context) {
-        if (this.props.error) {
-            this.setState({
-                showError: !this.state.showError
-            })
-        }
-        if (prevProps.products.length !== this.props.products.length) {
-            this.setState({
-                loading: false,
-                cartList: this.props.products
-            });
-        }
-    }
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     // debugger
+    //     if(this.props.products && this.props.products.length !== nextProps.products.length){
+    //         debugger
+    //         return true
+    //     }
+    //     return true
+    // }
 
     // component functions
     changeQuantity(index, quantity) {
-        let products = this.state.cartList;
-        products[index].quantity = quantity;
-
-        this.setState({
-            cartList: products
-        });
+        // let products = this.state.cartList;
+        // products[index].quantity = quantity;
+        //
+        // this.setState({
+        //     cartList: products
+        // });
         this.props.quantityChanged(index, quantity);
     }
 
     deleteItem(index) {
-        let products = this.state.cartList,
-            newProducts = products.filter((el, i) => {
-                return index !== i;
-            });
-
-        this.setState({
-            cartList: newProducts
-        });
+        // let products = this.state.cartList,
+        //     newProducts = products.filter((el, i) => {
+        //         return index !== i;
+        //     });
+        //
+        // this.setState({
+        //     cartList: newProducts
+        // });
         this.props.productRemoved(index);
     }
 
@@ -77,38 +71,41 @@ class Cart extends Component {
 
 
     render() {
+        if (!this.props.products) {
+            return (
+                <div className={'wrapper'}>
+                    <SkeletonLoader/>
+                </div>
+            )
+        }
+        const {products} = this.props;
+
         return (
             <div className={'wrapper'}>
+                <ul className={'products-list'}>
+                    {
+                        products.length === 0 ? (
+                            <div className={'cart-empty'}>We are very unpleased to tell you that your cart is
+                                empty!</div>
+                        ) : (
+                            products.map((product, index) => {
+                                return <ProductItem
+                                    key={index}
+                                    product={product}
+                                    index={index}
+                                    onQuantityChange={this.changeQuantity}
+                                    onDelete={this.deleteItem}
+                                />
+                            })
+                        )
+                    }
+                </ul>
                 {
-                    this.state.loading === true ? (
-                        <SkeletonLoader/>
-                    ) : (
-                        <ul className={'products-list'}>
-                            {
-                                this.state.cartList.length === 0 ? (
-                                    <div className={'cart-empty'}>We are very unpleased to tell you that your cart is
-                                        empty!</div>
-                                ) : (
-                                    this.state.cartList.map((product, index) => {
-                                        return <ProductItem
-                                            key={index}
-                                            product={product}
-                                            index={index}
-                                            onQuantityChange={this.changeQuantity}
-                                            onDelete={this.deleteItem}
-                                        />
-                                    })
-                                )
-                            }
-                        </ul>
-                    )
-                }
-                {
-                    this.state.cartList.length === 0 ||
+                    products.length === 0 ||
                     <div className={'cart-checkout'}>
-                        <CartTotal onChange={this.props.totalChanged} products={this.state.cartList}/>
+                        <CartTotal onChange={this.props.totalChanged} products={products}/>
                         <NavLink to={'/checkout'} className={'btn'}
-                                 disabled={this.state.cartList.length === 0}>Buy</NavLink>
+                                 disabled={products.length === 0}>Buy</NavLink>
                     </div>
                 }
                 {

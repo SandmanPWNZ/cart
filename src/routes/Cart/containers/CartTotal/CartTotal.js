@@ -9,7 +9,7 @@ const CartTotal = ({products, onChange}) => {
     onChange(total);
     return (
         <div className={'cart-total'}>
-            {total.toFixed(2)} €
+            {total.toFixed(2)} &#8364;
         </div>
     );
 };

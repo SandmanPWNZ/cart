@@ -1,4 +1,5 @@
 import axios from 'axios';
+import normalizeProduct from '../../../utils/normalizr';
 import CONSTANTS from './CartTypes.js';
 
 function doRequest(method, url, data = {}) {
@@ -28,6 +29,15 @@ function beginProductsFetch() {
     }
 }
 
+function countTotalInit(products) {
+    let total = 0;
+    products.forEach(el => {
+        total += el.price * el.quantity;
+    });
+
+    return total
+}
+
 export function fetchProducts() {
     return dispatch => {
         dispatch(beginProductsFetch());
@@ -35,7 +45,8 @@ export function fetchProducts() {
         return doRequest('get', 'http://5c3dfc7fa9d04f0014a98afa.mockapi.io/products')
             .then(response => {
                 if (response.status === 200) {
-                    return dispatch(fetchProductsSuccess(response.data));
+                    dispatch(totalChanged(countTotalInit(response.data)));
+                    return dispatch(fetchProductsSuccess(normalizeProduct(response.data)));
                 } else {
                     return dispatch(fetchProductsError(response.statusText))
                 }
@@ -71,5 +82,6 @@ export function productRemoved(index) {
         })
     }
 }
+
 
 export default 'null';

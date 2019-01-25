@@ -6,12 +6,18 @@ import trash from './trash.png';
 class ProductItem extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            quantity: props.product.quantity
+        };
 
         this.handleQuantity = this.handleQuantity.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
     };
 
     handleQuantity(index, event) {
+        this.setState({
+            quantity: event.target.value
+        });
         this.props.onQuantityChange(index, event.target.value);
     };
 
@@ -45,7 +51,9 @@ class ProductItem extends Component {
                             {/*onClick={() => this.handleQuantity(itemIndex, 'minus')}>-*/}
                             {/*</button>*/}
                             {/*<input type="text" disabled={true} value={product.quantity}/>*/}
-                            <select name="quantity" id="quantity" onChange={(event)=>this.handleQuantity(itemIndex, event)} value={product.quantity}>
+                            <select name="quantity" id="quantity"
+                                    onChange={(event) => this.handleQuantity(itemIndex, event)}
+                                    value={product.quantity}>
                                 {
                                     new Array(100).fill(0).map((el, index) => {
                                         return <option key={index} value={index + 1}>{index + 1}</option>
@@ -57,7 +65,7 @@ class ProductItem extends Component {
                             {/*</button>*/}
                         </div>
                         <span
-                            className={'product-price'}>{`${(product.price * product.quantity).toFixed(2)} €`}</span>
+                            className={'product-price'}>{`${(product.price * product.quantity).toFixed(2)} `}&#8364;</span>
                     </div>
                 </div>
             </li>
