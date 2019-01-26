@@ -31,35 +31,13 @@ class Cart extends Component {
         this.props.fetchProducts();
     }
 
-    // shouldComponentUpdate(nextProps, nextState, nextContext) {
-    //     // debugger
-    //     if(this.props.products && this.props.products.length !== nextProps.products.length){
-    //         debugger
-    //         return true
-    //     }
-    //     return true
-    // }
 
     // component functions
     changeQuantity(index, quantity) {
-        // let products = this.state.cartList;
-        // products[index].quantity = quantity;
-        //
-        // this.setState({
-        //     cartList: products
-        // });
         this.props.quantityChanged(index, quantity);
     }
 
     deleteItem(index) {
-        // let products = this.state.cartList,
-        //     newProducts = products.filter((el, i) => {
-        //         return index !== i;
-        //     });
-        //
-        // this.setState({
-        //     cartList: newProducts
-        // });
         this.props.productRemoved(index);
     }
 
@@ -79,6 +57,7 @@ class Cart extends Component {
             )
         }
         const {products} = this.props;
+        console.log(1, this.props);
 
         return (
             <div className={'wrapper'}>

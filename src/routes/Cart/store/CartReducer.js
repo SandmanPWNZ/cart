@@ -3,10 +3,10 @@ import CONSTANTS from './CartTypes.js';
 const initialState = {
     error: false,
     errorMessage: '',
-    productsById: null,
     products: null,
     total: 0
 };
+
 
 const CartReducer = (state = initialState, action) => {
     console.log(action);
@@ -16,32 +16,36 @@ const CartReducer = (state = initialState, action) => {
             return {...state, error: true, errorMessage: action.payload.message};
 
         case CONSTANTS.FETCH_PRODUCTS_SUCCESS:
-            // debugger
             return {
                 ...state,
-                productsById: action.payload.entities.product,
-                products: action.payload.result.products
+                products: action.payload
             };
 
         case CONSTANTS.TOTAL_CHANGED:
             return {...state, total: action.payload};
 
         case CONSTANTS.QUANTITY_CHANGED: {
-            // let index = action.payload.index,
-            //     products = state.products;
-            // products[index].quantity = action.payload.quantity;
-            // let newProducts = state.products.map((el,indexProd)=> {
-            //     return {...products, el[action.payload.index]: action.payload.quantity}
-            // });
-            return {...state};
+            let newProducts = state.products.map((product, indexProd) => {
+                if (action.index !== indexProd) {
+                    return product
+                } else {
+                    return {
+                        ...product,
+                        quantity: action.quantity
+                    }
+                }
+            });
+            return {...state, products: newProducts};
         }
 
         case CONSTANTS.DELETE_FROM_CART: {
+            let newProducts = state.products.filter((el, index) => {
+                    return index !== action.index
+                }
+            );
             return {
                 ...state,
-                products: state.products.filter((el, index) =>
-                    index !== action.payload.index
-                )
+                products: newProducts
             };
         }
 

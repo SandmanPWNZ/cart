@@ -1,5 +1,4 @@
 import axios from 'axios';
-import normalizeProduct from '../../../utils/normalizr';
 import CONSTANTS from './CartTypes.js';
 
 function doRequest(method, url, data = {}) {
@@ -46,7 +45,7 @@ export function fetchProducts() {
             .then(response => {
                 if (response.status === 200) {
                     dispatch(totalChanged(countTotalInit(response.data)));
-                    return dispatch(fetchProductsSuccess(normalizeProduct(response.data)));
+                    return dispatch(fetchProductsSuccess(response.data));
                 } else {
                     return dispatch(fetchProductsError(response.statusText))
                 }
@@ -70,7 +69,7 @@ export function totalChanged(total) {
 export function quantityChanged(index, quantity) {
     return dispatch => {
         return dispatch({
-            type: CONSTANTS.QUANTITY_CHANGED, payload: {index, quantity}
+            type: CONSTANTS.QUANTITY_CHANGED, index, quantity
         })
     }
 }
@@ -78,7 +77,7 @@ export function quantityChanged(index, quantity) {
 export function productRemoved(index) {
     return dispatch => {
         return dispatch({
-            type: CONSTANTS.DELETE_FROM_CART, payload: index
+            type: CONSTANTS.DELETE_FROM_CART, index
         })
     }
 }
