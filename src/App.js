@@ -21,7 +21,7 @@ const App = ({store}) => {
                             <Switch>
                                 <Route exact path="/" render={() => <Home/>}/>
                                 <Route path="/cart" render={() => <Cart/>}/>
-                                <Route path="/checkout" render={() => <Checkout/>}/>
+                                <Route path="/checkout" render={() => <Checkout total={store.getState().CartReducer.total} products={store.getState().CartReducer.products.length}/>}/>
                             </Switch>
                         </Suspense>
                     </main>

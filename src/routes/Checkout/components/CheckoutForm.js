@@ -6,10 +6,11 @@ import './CheckoutForm.scss';
 import {required, minLen3, email, exactLen9, num} from '../../../utils/FormValidate'
 import FormField from '../../../containers/FormField';
 
+import ShippingPrice from '../containers';
 
 class CheckoutForm extends Component {
     render() {
-        const {handleSubmit, pristine, submitting, invalid, total} = this.props;
+        const {handleSubmit, pristine, submitting, invalid, total, products} = this.props;
 
         const submit = (values) => console.log(values);
 
@@ -60,6 +61,7 @@ class CheckoutForm extends Component {
                     <div className="shipping-price">
                         {
 
+                            <ShippingPrice  total={total} amount={products} shippingOption={}/>
                         }
                     </div>
                 </div>
